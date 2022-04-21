@@ -1,24 +1,77 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column              | Type   | Options                   |
+| ------------------- | ------ | ------------------------- |
+| nickname            | string | null: false               |
+| email               | string | null: false, unique: true |
+| encrypted_password  | string | null: false               |
 
-* Ruby version
+### Association
+- has_many :phrases
+- has_one  :room
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## phrases テーブル
 
-* Database initialization
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| phrase              | string     | null: false                    |
+| tag_id              | integer    | null: false                    |ActiveHash
+| user                | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- belongs_to :tag
+- has_many   :rooms
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## roomsテーブル
+
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user_id          | references | null: false, foreign_key: true |
+| item_id          | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one    :address
+
+
+
+<!-- ## addresses テーブル
+
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| postal_code      | string     | null: false                    |
+| municipalities   | string     | null: false                    |
+| street_number    | string     | null: false                    |
+| building_name    | string     |                                |
+| phone_number     | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |ActiveHash
+| order_id         | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :order
+- belongs_to :prefectures_activehash
+
+
+
+## comments テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :room
+- belongs_to :user
+
+
+ -->
