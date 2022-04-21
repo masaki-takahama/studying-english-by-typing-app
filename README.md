@@ -25,11 +25,10 @@
 ### Association
 - belongs_to :user
 - belongs_to :tag
-- has_many   :rooms
 
 
 
-## roomsテーブル
+<!-- ## roomsテーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -41,7 +40,7 @@
 - belongs_to :item
 - has_one    :address
 
-
+ -->
 
 <!-- ## addresses テーブル
 
