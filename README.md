@@ -10,7 +10,6 @@
 
 ### Association
 - has_many :phrases
-- has_one  :room
 
 
 
